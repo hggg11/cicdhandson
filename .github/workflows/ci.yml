@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
         id: checkout
       - name: actions/checkoutのステータスを表示
-        run: echo "${{ steps.checkout.conclusion }"
+        run: echo "${{ steps.checkout.conclusion }}"
       - name: Goの環境をセットアップする
         uses: actions/setup-go@v5
         with:
