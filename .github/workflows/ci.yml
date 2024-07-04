@@ -57,6 +57,8 @@ jobs:
           name: build
           path: ./artifact.zip
       - name: GitHub Releaseへのデプロイ
-        run: gh release upload v1.0.0 ./artifact.zip
+        run: |
+          sleep 3
+          gh release upload v1.0.0 ./artifact.zip
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
