@@ -37,14 +37,13 @@ jobs:
     steps:
       - name: ビルド処理
         run: |
-          mkdir /output
-          touch /output/build
+          touch ./artifact.zip
             
       - name: 成果物のアップロード
         uses: actions/upload-artifact@v4
         with:
           name: build
-          path: /output/
+          path: ./artifact.zip
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -56,8 +55,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build
-          path: ../../output/
+          path: ./artifact.zip
       - name: GitHub Releaseへのデプロイ
-        run: gh release upload v1.0.0 outpuut/artifact.zip
+        run: gh release upload v1.0.0 ./artifact.zip
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
