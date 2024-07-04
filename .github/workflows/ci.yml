@@ -58,7 +58,7 @@ jobs:
           path: ./artifact.zip
       - name: GitHub Releaseへのデプロイ
         run: |
-          gh release create -d --latest=true
+          gh release create 20240704
           gh release upload v1.0.0 ./artifact.zip
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
